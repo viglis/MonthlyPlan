@@ -1,0 +1,2 @@
+include ':app', ':calender'
+project(':calender').projectDir = new File('library_project/calender')

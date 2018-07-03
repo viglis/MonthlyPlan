@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_bezel">16dp</dimen>
+    <dimen name="space_dialog_margin">16dp</dimen>
+
+    <dimen name="text_date_size">15dp</dimen>
+</resources>

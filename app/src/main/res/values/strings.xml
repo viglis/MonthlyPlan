@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MonthlyOnePlan</string>
+
+    <string name="error_empty_goal">목표를 입력하세요.</string>
+
+    <string name="btn_create">만들기</string>
+    <string name="btn_ok">확인</string>
+    <string name="btn_cancel">취소</string>
+
+    <string name="activity_plan_create_description">이번 달 목표를 세우세요.</string>
+    <string name="activity_plan_create_btn">만들기</string>
+    <string name="activity_plan_run_btn">오늘 했어요!</string>
+    <string name="activity_plan_run_empty">목표를 달성하세요.</string>
+    <string name="activity_plan_run">%1$d회 수행</string>
+
+    <string name="dialog_add_plan_hint">목표를 입력 해주세요.</string>
+    <string name="dialog_add_plan_date_year">년</string>
+    <string name="dialog_add_plan_date_month">월</string>
+
+</resources>

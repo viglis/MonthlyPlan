@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mobile.vigli.monthlyoneplan.view.PlanActivity">
+
+    <data>
+
+        <variable
+            name="planVm"
+            type="com.mobile.vigli.monthlyoneplan.viewmodel.PlanViewModel" />
+    </data>
+
+    <FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/empty_plan_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <!--월 목표가 없는 경우-->
+            <TextView
+                android:id="@+id/create_description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/activity_plan_create_description"
+                android:textColor="@color/colorGray"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/create_btn"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <Button
+                android:id="@+id/create_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_button_rounded_outline"
+                android:onClick="@{planVm::onClick}"
+                android:text="@string/activity_plan_create_btn"
+                android:textColor="@drawable/selector_button_rounded_outline_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/create_description_text"
+                app:layout_constraintVertical_chainStyle="packed" />
+        </android.support.constraint.ConstraintLayout>
+
+        <!--월 목표가 있는 경우-->
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/plan_layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <!--요약 정보-->
+            <ImageView
+                android:id="@+id/run_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="@dimen/space_bezel"
+                android:background="@drawable/ic_run"
+                android:onClick="@{planVm::onClick}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@id/run_image"
+                app:layout_constraintLeft_toRightOf="@id/run_image"
+                app:layout_constraintRight_toLeftOf="@id/info_btn"
+                app:layout_constraintTop_toTopOf="@id/run_image">
+
+                <TextView
+                    android:id="@+id/date_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="date"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text_date_size" />
+
+                <TextView
+                    android:id="@+id/run_detail_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="@string/activity_plan_run_empty"
+                    android:textColor="@color/colorGray" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/info_btn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="@dimen/space_bezel"
+                android:background="@drawable/ic_info"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--목표-->
+            <TextView
+                android:id="@+id/goal_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_bezel"
+                android:layout_marginRight="@dimen/space_bezel"
+                android:gravity="center_horizontal"
+                android:text="목표"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--수행-->
+            <Button
+                android:id="@+id/run_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_bezel"
+                android:background="@drawable/selector_button_rounded_outline"
+                android:onClick="@{planVm::onClick}"
+                android:text="@string/activity_plan_run_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
+</layout>
